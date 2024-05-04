@@ -1,0 +1,72 @@
+Error 1:
+
+ReferenceError: document is not defined
+
+The error message "ReferenceError: document is not defined" typically occurs when you're trying to run client-side JavaScript code (which expects a document object to exist) in a server-side JavaScript environment like Node.js, where there is no document object.
+
+However, if you're running this code in a browser and still getting this error, it's likely due to a typo in your code. The method to get an element by its ID is getElementById, not getElemenById.
+
+Here's the corrected code:
+
+
+
+Error 2:
+
+How can I access the value of an input field using JavaScript?
+
+You can access the value of an input field in JavaScript using the value property. Here's how you can modify your code to get the value of the input field with the ID "date":
+
+let userBirthday = document.getElementById("date").value;
+console.log(userBirthday);
+
+Error 3:
+
+script.js:1 Uncaught TypeError: Cannot read properties of null (reading 'value') at script.js:1:51
+
+The error message "Uncaught TypeError: Cannot read properties of null (reading 'value')" typically occurs when you're trying to access a property of an object that is null. In this case, it seems like document.getElementById("date") is returning null, which means there is no element with the ID "date" at the time the script is running.
+
+This issue is likely happening because your script is running before the HTML document has fully loaded, so the element with the ID "date" doesn't exist yet when the script is trying to access it.
+
+To fix this, you can wrap your JavaScript code in a window.onload function or move the script tag to the end of the body. Here's how you can do it with window.onload:
+
+This code will wait until the window has finished loading before it tries to get the value of the input field with the ID "date".
+
+window.onload = function() {
+  let userBirthday = document.getElementById("date").value;
+  console.log(userBirthday);
+}
+
+This code will wait until the window has finished loading before it tries to get the value of the input field with the ID "date"
+
+Error 4:
+
+How to call the script and print on com=nsole log once I enter the date in the input field
+
+To execute the script and print the value to the console log once you enter the date in the input field, you can use the oninput or onchange event.
+
+The oninput event triggers every time the value of the input field changes, while the onchange event triggers when the input field loses focus after its value was changed.
+
+Here's how you can modify your HTML and JavaScript code to use the oninput event:
+
+
+Error 5:
+
+index.html:16 Uncaught ReferenceError: printDate is not defined at HTMLInputElement.oninput (index.html:16:58)
+
+The error "Uncaught ReferenceError: printDate is not defined" is occurring because the printDate function is defined inside the window.onload function, which makes it inaccessible from the global scope. The oninput attribute in your HTML is trying to access printDate from the global scope, which is why it's not finding the function.
+
+To fix this, you can define printDate in the global scope, like this:
+
+const printDate = () => {
+  let userBirthday = document.getElementById("date").value;
+  console.log(userBirthday);
+};
+
+window.onload = () => {
+  // other code can go here
+};
+
+
+Now, printDate is accessible from the global scope, so your oninput attribute should be able to find it.
+
+WORKS AFTER THIS...

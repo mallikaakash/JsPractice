@@ -1,0 +1,35 @@
+body {
+  background-image: url("./pic.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  background-position: center center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 4rem;
+  margin-top: 20rem;
+  font-weight: normal;
+}
+
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.big-text {
+  font-size: 3rem;
+  margin: 0 1rem;
+  font-weight: bold;
+}
+
+#data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}

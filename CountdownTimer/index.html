@@ -1,0 +1,39 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CountDown Timer</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div>
+      <h1>Your Age Calculator</h1>
+    </div>
+    <div>
+      <h3>Enter your Birthday</h3>
+    </div>
+    <input type="date" id="date" oninput="printDate()" />
+    <div class="countdown-container">
+      <div class="days-c">
+        <p id="days" class="big-text">0</p>
+        <span>Days</span>
+      </div>
+
+      <div class="hours-c">
+        <p id="hours" class="big-text">0</p>
+        <span>Hours</span>
+      </div>
+
+      <div class="min-c">
+        <p id="min" class="big-text">0</p>
+        <span>Minutes</span>
+      </div>
+
+      <div class="sec-c">
+        <p id="sec" class="big-text">0</p>
+        <span>Seconds</span>
+      </div>
+    </div>
+  </body>
+</html>
