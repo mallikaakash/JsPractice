@@ -10,7 +10,9 @@ async function getWeather(latitude, longitude) {
   try {
     const response = await fetch(url, options);
     const result = await response.text();
-    console.log(result.weather);
+    const datax = JSON.parse(result).data[0].weather;
+    console.log(datax);
+    return datax;
   } catch (error) {
     console.error(error);
   }
@@ -32,7 +34,8 @@ async function getCoordinates(zipcode) {
     const latitude = JSON.parse(result)[0].lat;
     const longitude = JSON.parse(result)[0].lng;
     console.log(latitude, longitude);
-    getWeather(latitude, longitude);
+    const data = await getWeather(latitude, longitude);
+    return data;
   } catch (error) {
     console.error(error);
   }
@@ -40,5 +43,12 @@ async function getCoordinates(zipcode) {
 
 async function start() {
   const zipcode = document.getElementById("zipcode").value;
-  await getCoordinates(zipcode);
+  const data = await getCoordinates(zipcode);
+
+  const container = document.getElementById("container");
+  if (container.childElementCount > 0)
+    container.removeChild(container.firstChild);
+  const weatherTab = document.createElement("div");
+  weatherTab.innerHTML = data;
+  container.appendChild(weatherTab);
 }
